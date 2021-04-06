@@ -1,9 +1,11 @@
 FROM ubuntu:20.04 AS builder
 
+ARG DEBIAN_FRONTEND="noninteractive"
+
 WORKDIR /tmp
 
 RUN mkdir gminer \
-    && apt update && apt install tar wget xz-utils -y \
+    && apt update && apt install tar wget xz-utils tzdata -y --no-install-recommends  \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://github.com/develsoftware/GMinerRelease/releases/download/2.50/gminer_2_50_linux64.tar.xz && \
@@ -22,5 +24,7 @@ RUN ln -s /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1 /usr/lib/x86_64-linux-gnu/
 COPY --from=builder /tmp/gminer/miner /usr/local/bin/miner
 
 EXPOSE 8080
+
+ENV TZ America/Caracas
 
 ENTRYPOINT [ "miner" ]
