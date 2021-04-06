@@ -9,7 +9,7 @@ RUN wget https://github.com/develsoftware/GMinerRelease/releases/download/2.49/g
     tar xf gminer_2_49_linux64.tar.xz -C gminer
 
 
-FROM nvidia/cuda:10.2-base
+FROM nvidia/cuda:11.2.2-base
 
 LABEL maintainer="Dockminer"
 
