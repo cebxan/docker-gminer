@@ -5,7 +5,8 @@ ARG DEBIAN_FRONTEND="noninteractive"
 WORKDIR /tmp
 
 RUN mkdir gminer \
-    && apt update && apt install tar wget xz-utils tzdata -y --no-install-recommends  \
+    && apt update \
+    && apt install tar wget xz-utils tzdata ca-certificates -y --no-install-recommends  \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://github.com/develsoftware/GMinerRelease/releases/download/2.50/gminer_2_50_linux64.tar.xz && \
