@@ -18,7 +18,7 @@ For a detailed description of features read [here](https://github.com/develsoftw
 
 Run the following commands in your terminal:
 
-`docker run --gpus all -d dockminer/gminer:latest [miner arguments]`
+`docker run --gpus all -d cebxan/gminer:latest [miner arguments]`
 
 The container should up and start mining.
 
@@ -28,5 +28,5 @@ In default, the docker expose the 8080 port for GMiner monitoring page, you can 
 
 This image is built on top of the following softwares:
 
-- [Nvidia CUDA Container](https://gitlab.com/nvidia/container-images/cuda) v10.2
-- [GMiner](https://github.com/develsoftware/GMinerRelease) v2.49
+- [Nvidia CUDA Container](https://gitlab.com/nvidia/container-images/cuda) v11.2.2
+- [GMiner](https://github.com/develsoftware/GMinerRelease) v2.51

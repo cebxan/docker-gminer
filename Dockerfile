@@ -7,8 +7,8 @@ RUN mkdir gminer \
     && apt install tar wget xz-utils ca-certificates -y --no-install-recommends  \
     && rm -rf /var/lib/apt/lists/*
 
-RUN wget https://github.com/develsoftware/GMinerRelease/releases/download/2.50/gminer_2_50_linux64.tar.xz && \
-    tar xf gminer_2_50_linux64.tar.xz -C gminer
+RUN wget https://github.com/develsoftware/GMinerRelease/releases/download/2.51/gminer_2_51_linux64.tar.xz && \
+    tar xf gminer_2_51_linux64.tar.xz -C gminer
 
 
 FROM nvidia/cuda:11.2.2-base
