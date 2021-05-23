@@ -11,7 +11,7 @@ RUN mkdir gminer \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://github.com/develsoftware/GMinerRelease/releases/download/${GMINER_VERSION}/${GMINER_FILENAME} && \
-    tar xf gminer_2_51_linux64.tar.xz -C gminer
+    tar xf ${GMINER_FILENAME} -C gminer
 
 
 FROM nvidia/cuda:11.3.0-base
