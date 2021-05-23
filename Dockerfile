@@ -14,7 +14,7 @@ RUN wget https://github.com/develsoftware/GMinerRelease/releases/download/${GMIN
     tar xf gminer_2_51_linux64.tar.xz -C gminer
 
 
-FROM nvidia/cuda:11.2.2-base
+FROM nvidia/cuda:11.3.0-base
 
 LABEL maintainer="Carlos Berroteran (cebxan)"
 
