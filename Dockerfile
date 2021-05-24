@@ -13,21 +13,10 @@ RUN mkdir gminer \
 RUN wget https://github.com/develsoftware/GMinerRelease/releases/download/${GMINER_VERSION}/${GMINER_FILENAME} && \
     tar xf ${GMINER_FILENAME} -C gminer
 
-
-FROM nvidia/cuda:11.3.0-base
+FROM ghcr.io/cebxan/gpu-computing
 
 LABEL maintainer="Carlos Berroteran (cebxan)"
-
 LABEL org.opencontainers.image.source https://github.com/cebxan/docker-gminer
-
-# Fix Driver bug
-RUN ln -s /usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1 /usr/lib/x86_64-linux-gnu/libnvidia-ml.so
-
-ARG DEBIAN_FRONTEND="noninteractive"
-
-RUN apt update \
-    && apt install tzdata -y --no-install-recommends  \
-    && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /tmp/gminer/miner /usr/local/bin/miner
 
